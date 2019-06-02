@@ -41,13 +41,6 @@ export class FilteredTodosBloc extends Bloc<
   private todosBloc: TodosBloc;
   private todosSubscription: Subscription;
 
-  public initialState(): FilteredTodosState {
-    return {
-      filter: "none",
-      todos: this.todosBloc.currentState
-    };
-  }
-
   public dispose() {
     super.dispose();
     this.todosSubscription.unsubscribe();
