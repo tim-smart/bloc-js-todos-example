@@ -1,5 +1,4 @@
 import { Bloc } from "@bloc-js/bloc";
-import { map } from "rxjs/operators";
 import { Todo } from "../models/Todo";
 import { TodosBloc } from "./TodosBloc";
 
@@ -13,15 +12,14 @@ export interface FilteredTodosState {
 export class FilteredTodosBloc extends Bloc<FilteredTodosState> {
   constructor(private todosBloc: TodosBloc) {
     super({ filter: "none", todos: todosBloc.value });
-    this.consume(
-      todosBloc.pipe(
-        map(
-          (todos): FilteredTodosState => ({
-            ...this.value,
-            todos: this.filterTodos(todos, this.value.filter),
-          }),
-        ),
-      ),
+
+    this.unsubscribeOnComplete(
+      todosBloc.subscribe(todos => {
+        this.next({
+          ...this.value,
+          todos: this.filterTodos(todos, this.value.filter),
+        });
+      }),
     );
   }
 

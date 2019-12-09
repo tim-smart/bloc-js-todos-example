@@ -966,14 +966,14 @@
     to-fast-properties "^2.0.0"
 
 "@bloc-js/bloc@^2.0.0":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@bloc-js/bloc/-/bloc-2.0.1.tgz#1c30e3a05ed48fced5eed976e5324fe6230ac4f2"
-  integrity sha512-IV6FNeVrxz2uuMMa446b12wu1mnCPiyT7e+R3sJIx8ZrPPP1UNpYGit5uayW+15AuBOtICW5oCKPtMEHNFpNVg==
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@bloc-js/bloc/-/bloc-2.1.0.tgz#40b6a7553219a3561d10565aa6781f961b1bb624"
+  integrity sha512-CYQqpW76djNaVy18icmMSbclwvnj3icHDOO8FWLOx8w6Sh/MEWV/EvM9OGId90dgM0fg1fvXCJHJqrilefLIwQ==
 
 "@bloc-js/react-bloc@^2.0.0":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@bloc-js/react-bloc/-/react-bloc-2.0.2.tgz#04eeced8317536d80586740ba274e7ed6fadeefc"
-  integrity sha512-ImHWYC2evLElDDftRe0xRpX/3mKGndpjZVz1VOx8bFE8B4C82Ak1PPFTOa2S9yqE/1vCALjNKTKN4jsr9lwJ+g==
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@bloc-js/react-bloc/-/react-bloc-2.0.3.tgz#4f45fabf43761d17f7f63800c5ae66439930558e"
+  integrity sha512-4FCLeF6Cqlc1Zi6f4/arc61sxRI9SDQkDAQBJUlNj1BLoGLnYUbP3T49pmOOtjp9pwxzFFW4XBdFlw9savbyYA==
 
 "@cnakazawa/watch@^1.0.3":
   version "1.0.3"
@@ -1384,9 +1384,9 @@
     "@types/react" "*"
 
 "@types/react@*":
-  version "16.9.15"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.15.tgz#aeabb7a50f96c9e31a16079ada20ede9ed602977"
-  integrity sha512-WsmM1b6xQn1tG3X2Hx4F3bZwc2E82pJXt5OPs2YJgg71IzvUoKOSSSYOvLXYCg1ttipM+UuA4Lj3sfvqjVxyZw==
+  version "16.9.16"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.16.tgz#4f12515707148b1f53a8eaa4341dae5dfefb066d"
+  integrity sha512-dQ3wlehuBbYlfvRXfF5G+5TbZF3xqgkikK7DWAsQXe2KnzV+kjD4W2ea+ThCrKASZn9h98bjjPzoTYzfRqyBkw==
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
@@ -8619,9 +8619,9 @@ serialize-javascript@^1.4.0:
   integrity sha512-0Vb/54WJ6k5v8sSWN09S0ora+Hnr+cX40r9F170nT+mSkaxltoE/7R3OrIdBSUv1OoiobH1QoWQbCnAO+e8J1A==
 
 serialize-javascript@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-2.1.1.tgz#952907a04a3e3a75af7f73d92d15e233862048b2"
-  integrity sha512-MPLPRpD4FNqWq9tTIjYG5LesFouDhdyH0EPY3gVK4DRD5+g4aDqdNSzLIwceulo3Yj+PL1bPh6laE5+H6LTcrQ==
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-2.1.2.tgz#ecec53b0e0317bdc95ef76ab7074b7384785fa61"
+  integrity sha512-rs9OggEUF0V4jUSecXazOYsLfu7OGK2qIn3c7IPBiffz32XniEp/TX9Xmc9LQfK2nQ2QKHvZ2oygKUGU0lG4jQ==
 
 serve-index@^1.7.2:
   version "1.9.1"
