@@ -6,7 +6,7 @@ import { BlocContext } from "./contexts/BlocContext";
 import { FilteredTodosBloc } from "./bloc/FilteredTodosBloc";
 
 const App: React.FC = () => {
-  const todosBloc = new TodosBloc();
+  const todosBloc = new TodosBloc([]);
   const filteredTodosBloc = new FilteredTodosBloc(todosBloc);
 
   return (

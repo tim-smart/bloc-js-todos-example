@@ -7,10 +7,7 @@ export const TodoForm: React.FC = () => {
 
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
-    todosBloc.dispatch({
-      type: "add todo",
-      todo: { key: `${Date.now()}`, text }
-    });
+    todosBloc.add({ key: `${Date.now()}`, text });
     setText("");
   }
 

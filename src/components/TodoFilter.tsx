@@ -8,10 +8,7 @@ export const TodoFilter: React.FC = () => {
 
   function toggleFilter() {
     const filter = state.filter === "none" ? "awesome" : "none";
-    filteredTodosBloc.dispatch({
-      type: "update filter",
-      filter
-    });
+    filteredTodosBloc.setFilter(filter);
   }
 
   return (

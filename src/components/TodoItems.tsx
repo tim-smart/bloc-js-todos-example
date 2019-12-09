@@ -11,7 +11,7 @@ export const TodoItems: React.FC<TodoItemsProps> = ({ todos }) => {
   const todosBloc = React.useContext(BlocContext).todosBloc!;
 
   function onClick(todo: Todo) {
-    todosBloc.dispatch({ type: "remove todo", todo });
+    todosBloc.remove(todo);
   }
 
   return (

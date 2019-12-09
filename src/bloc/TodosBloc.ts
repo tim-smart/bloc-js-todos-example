@@ -1,33 +1,14 @@
-import { Bloc } from "@bloc-js/bloc";
-import { Todo } from "../models/Todo";
-
-// Events
-export interface AddTodo {
-  type: "add todo";
-  todo: Todo;
-}
-export interface RemoveTodo {
-  type: "remove todo";
-  todo: Todo;
-}
-export type TodosEvent = AddTodo | RemoveTodo;
+import {Bloc} from '@bloc-js/bloc';
+import {Todo} from '../models/Todo';
 
 export type TodosState = Array<Todo>;
 
-export class TodosBloc extends Bloc<TodosEvent, TodosState> {
-  constructor() {
-    super([]);
+export class TodosBloc extends Bloc<TodosState> {
+  public add(t: Todo) {
+    this.next([...this.value, t])
   }
 
-  public async *mapEventToState(event: TodosEvent) {
-    if (event.type === "add todo") {
-      yield* this.mapAddTodoToState(event);
-    } else if (event.type === "remove todo") {
-      yield this.currentState.filter(todo => todo.key !== event.todo.key);
-    }
-  }
-
-  public async *mapAddTodoToState(event: AddTodo) {
-    yield [...this.currentState, event.todo];
+  public remove(t: Todo) {
+    this.next(this.value.filter(todo => todo.key !== t.key));
   }
 }
