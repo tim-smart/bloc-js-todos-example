@@ -1,14 +1,17 @@
-import {Bloc} from '@bloc-js/bloc';
-import {Todo} from '../models/Todo';
+import { Bloc, BlocAction } from "@bloc-js/bloc";
+import { Todo } from "../models/Todo";
+import { createHooks } from "@bloc-js/react-bloc";
 
 export type TodosState = Array<Todo>;
+export type TodoAction = BlocAction<TodosState>;
 
-export class TodosBloc extends Bloc<TodosState> {
-  public add(t: Todo) {
-    this.next([...this.value, t])
-  }
+export const { getBloc, useBloc, useState } = createHooks<TodosState>(
+  "todos",
+  (_, i = []) => new TodosBloc(i),
+);
 
-  public remove(t: Todo) {
-    this.next(this.value.filter(todo => todo.key !== t.key));
-  }
-}
+export const add = (t: Todo): TodoAction => (b, next) => next([...b.value, t]);
+export const remove = (t: Todo): TodoAction => (b, next) =>
+  next(b.value.filter((todo) => todo.key !== t.key));
+
+export class TodosBloc extends Bloc<TodosState> {}

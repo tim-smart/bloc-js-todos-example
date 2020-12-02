@@ -1,22 +1,25 @@
 import * as React from "react";
-import { BlocContext } from "../contexts/BlocContext";
+import * as Todos from "../bloc/TodosBloc";
 
 export const TodoForm: React.FC = () => {
-  const todosBloc = React.useContext(BlocContext).todosBloc!;
+  const bloc = Todos.useBloc();
   const [text, setText] = React.useState("");
 
-  function onSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    todosBloc.add({ key: `${Date.now()}`, text });
-    setText("");
-  }
+  const submit = React.useCallback(
+    (e: React.FormEvent) => {
+      e.preventDefault();
+      bloc.next(Todos.add({ key: `${Date.now()}`, text }));
+      setText("");
+    },
+    [bloc, text, setText],
+  );
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={submit}>
       <input
         placeholder="Task"
         value={text}
-        onChange={e => setText(e.target.value)}
+        onChange={(e) => setText(e.target.value)}
       />
       <button type="submit">Add Task</button>
     </form>

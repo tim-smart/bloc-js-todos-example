@@ -1,13 +1,11 @@
 import * as React from "react";
-import { BlocContext } from "../contexts/BlocContext";
-import { useBlocState } from "@bloc-js/react-bloc";
 import { TodoForm } from "./TodoForm";
 import { TodoItems } from "./TodoItems";
 import { TodoFilter } from "./TodoFilter";
+import * as Todos from "../bloc/FilteredTodosBloc";
 
 export const TodoList: React.FC = () => {
-  const filteredTodos = React.useContext(BlocContext).filteredTodosBloc!;
-  const state = useBlocState(filteredTodos);
+  const state = Todos.useState();
 
   return (
     <div className="todoListMain">

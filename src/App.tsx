@@ -1,20 +1,17 @@
+import { BlocRegistry, BlocRoot } from "@bloc-js/react-bloc";
 import React from "react";
 import "./App.css";
 import { TodoList } from "./components/TodoList";
-import { TodosBloc } from "./bloc/TodosBloc";
-import { BlocContext } from "./contexts/BlocContext";
-import { FilteredTodosBloc } from "./bloc/FilteredTodosBloc";
+
+export const registry = new BlocRegistry();
 
 const App: React.FC = () => {
-  const todosBloc = new TodosBloc([]);
-  const filteredTodosBloc = new FilteredTodosBloc(todosBloc);
-
   return (
-    <BlocContext.Provider value={{ todosBloc, filteredTodosBloc }}>
+    <BlocRoot registry={registry}>
       <div className="App">
         <TodoList />
       </div>
-    </BlocContext.Provider>
+    </BlocRoot>
   );
 };
 

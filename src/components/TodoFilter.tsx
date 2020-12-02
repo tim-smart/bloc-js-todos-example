@@ -1,22 +1,27 @@
 import * as React from "react";
-import { BlocContext } from "../contexts/BlocContext";
-import { useBlocState } from "@bloc-js/react-bloc";
+import * as Filtered from "../bloc/FilteredTodosBloc";
+import * as Todos from "../bloc/TodosBloc";
 
 export const TodoFilter: React.FC = () => {
-  const filteredTodosBloc = React.useContext(BlocContext).filteredTodosBloc!;
-  const state = useBlocState(filteredTodosBloc);
+  const bloc = Filtered.useBloc();
+  const state = Filtered.useState();
 
-  function toggleFilter() {
+  const todosBloc = Todos.useBloc();
+  const setFilter = React.useMemo(() => Filtered.setFilter(todosBloc), [
+    todosBloc,
+  ]);
+
+  const toggle = React.useCallback(() => {
     const filter = state.filter === "none" ? "awesome" : "none";
-    filteredTodosBloc.setFilter(filter);
-  }
+    bloc.next(setFilter(filter));
+  }, [bloc, state, setFilter]);
 
   return (
     <div>
       <p>
         Current filter: {state.filter}
         <br />
-        <button type="button" onClick={toggleFilter}>
+        <button type="button" onClick={toggle}>
           Toggle awesome filter
         </button>
       </p>
