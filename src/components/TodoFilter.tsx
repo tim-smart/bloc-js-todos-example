@@ -1,20 +1,14 @@
 import * as React from "react";
-import * as Filtered from "../bloc/FilteredTodosBloc";
-import * as Todos from "../bloc/TodosBloc";
+import * as FT from "../bloc/FilteredTodosBloc";
 
 export const TodoFilter: React.FC = () => {
-  const bloc = Filtered.useBloc();
-  const state = Filtered.useState();
-
-  const todosBloc = Todos.useBloc();
-  const setFilter = React.useMemo(() => Filtered.setFilter(todosBloc), [
-    todosBloc,
-  ]);
+  const bloc = FT.useBloc();
+  const state = FT.useState();
 
   const toggle = React.useCallback(() => {
     const filter = state.filter === "none" ? "awesome" : "none";
-    bloc.next(setFilter(filter));
-  }, [bloc, state, setFilter]);
+    bloc.next(FT.setFilter(filter));
+  }, [bloc, state]);
 
   return (
     <div>

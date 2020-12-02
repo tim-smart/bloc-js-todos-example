@@ -35,12 +35,10 @@ export const setTodos = (todos: Todo[]): FilteredTodosAction => (b, next) =>
     todos: filterTodos(todos, b.value.filter),
   });
 
-export const setFilter = (b: TodosBloc) => (
-  filter: Filter,
-): FilteredTodosAction => (_, next) =>
+export const setFilter = (filter: Filter): FilteredTodosAction => (b, next) =>
   next({
     filter,
-    todos: filterTodos(b.value, filter),
+    todos: filterTodos((b as FilteredTodosBloc).todosBloc.value, filter),
   });
 
 // Bloc
